@@ -33,7 +33,7 @@ pub fn init(events_loop: &EventsLoop) -> (World, Dispatcher<'static, 'static>) {
         .build(events_loop)
         .unwrap_or_else(throw);
     world.add_resource(EventChannel::<Event>::new());
-    render::init(
+    render::init::<render::SwapchainTarget>(
         &mut world,
         &mut dispatcher,
         window,
